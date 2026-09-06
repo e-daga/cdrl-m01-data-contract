@@ -75,12 +75,12 @@ const artifact = {
   ],
   database: dbSummary,
   tests: {
-    normalCase: "temperature_c telemetry event is accepted and readable",
+    normalCase: "evento temperature_c aceptado y consultable",
     boundaryCases: [
-      "battery_pct accepts lower bound 0",
-      "humidity_pct accepts upper bound 100"
+      "battery_pct acepta el limite inferior 0",
+      "humidity_pct acepta el limite superior 100"
     ],
-    declaredFailure: "battery_pct above 100 is rejected by CHECK constraint"
+    declaredFailure: "battery_pct mayor a 100 se rechaza por CHECK"
   },
   security: {
     secretsCommitted: false,
@@ -95,5 +95,5 @@ fs.writeFileSync(
   `${JSON.stringify(artifact, null, 2)}\n`
 );
 
-console.log("CDRL M01 verification passed");
+console.log("Verificacion M01 completada");
 console.log(JSON.stringify(artifact, null, 2));

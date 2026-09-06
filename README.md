@@ -1,8 +1,10 @@
-# CDRL — M01 Contrato de datos y entorno reproducible
+# CDRL - M01 contrato de datos
 
-Implementacion del hito **[Semana 01] M01** para Cloud Data Reliability Lab. El repositorio define un contrato relacional de telemetria en PostgreSQL 16, migraciones SQL versionadas, seed sintetico reproducible, pruebas automaticas y evidencia machine-readable.
+Repositorio del equipo para el hito **M01 - Contrato de datos y entorno reproducible**.
 
-## Interfaz de entrega
+La idea de esta entrega es dejar una base relacional sencilla para recibir telemetria. Usamos PostgreSQL 16 con Docker Compose, migraciones SQL, datos de prueba sinteticos y pruebas automaticas para comprobar que el contrato acepta datos validos y rechaza un caso invalido.
+
+## Como correrlo
 
 ```sh
 make setup
@@ -10,7 +12,7 @@ make verify
 make run
 ```
 
-En Windows, si `make` no esta instalado, los comandos equivalentes son:
+En Windows puede pasar que `make` no este instalado. En ese caso se puede correr lo mismo con npm:
 
 ```sh
 npm ci
@@ -19,25 +21,25 @@ npm run verify
 npm run run
 ```
 
-## Requisitos
+## Requisitos usados
 
 - Docker Desktop con Docker Compose.
 - Node.js 20 o superior.
 - Git.
 
-## Estructura
+## Carpetas principales
 
 ```text
-db/migrations/        Migraciones SQL versionadas
-db/seed/              Seed sintetico determinista
-docs/                 ADR y reporte tecnico
-scripts/              Automatizacion reproducible
-tests/                Pruebas del contrato de datos
-artifacts/            Resultado machine-readable
-evidence/             Evidencia solicitada por Classroom
+db/migrations/        migraciones SQL
+db/seed/              datos sinteticos iniciales
+docs/                 decisiones tecnicas
+scripts/              scripts para setup, verify y run
+tests/                pruebas automaticas
+artifacts/            salida JSON de verificacion
+evidence/             evidencia para Classroom
 ```
 
-## Casos cubiertos
+## Pruebas incluidas
 
 - Caso normal: insertar y leer un evento `temperature_c`.
 - Caso limite 1: `battery_pct` acepta el limite inferior `0`.
@@ -46,11 +48,9 @@ evidence/             Evidencia solicitada por Classroom
 
 ## Seguridad
 
-No se guardan credenciales, tokens, datos personales ni cadenas de conexion privadas. `.env.example` contiene valores sinteticos de desarrollo; `.env` esta ignorado por Git.
+No se suben credenciales, tokens, datos personales ni cadenas de conexion privadas. El archivo `.env.example` trae valores locales de ejemplo y `.env` queda fuera de Git.
 
 ## Entrega en Classroom
-
-Entregar:
 
 - URL del repositorio de equipo.
 - Tag `week-01-final`.

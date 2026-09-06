@@ -9,7 +9,7 @@ for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     await client.connect();
     await client.query("select 1");
     await client.end();
-    console.log("PostgreSQL is ready");
+    console.log("PostgreSQL listo");
     process.exit(0);
   } catch (error) {
     try {
@@ -19,7 +19,7 @@ for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     }
 
     if (attempt === maxAttempts) {
-      console.error("PostgreSQL did not become ready in time");
+      console.error("PostgreSQL no estuvo listo a tiempo");
       console.error(error.message);
       process.exit(1);
     }

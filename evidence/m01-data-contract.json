@@ -10,15 +10,15 @@
     "dataContract": "implemented",
     "relationalDatabase": "postgresql-16",
     "migrationStrategy": "versioned-sql-with-checksum",
-    "seedStrategy": "deterministic-synthetic-upsert",
+    "seedStrategy": "seed sintetico determinista con upsert",
     "machineReadableArtifact": "artifacts/m01-verify.json",
     "automatedTests": {
-      "normalCase": "temperature_c telemetry event accepted and readable",
+      "normalCase": "evento temperature_c aceptado y consultable",
       "boundaryCases": [
-        "battery_pct lower bound 0 accepted",
-        "humidity_pct upper bound 100 accepted"
+        "battery_pct acepta el limite inferior 0",
+        "humidity_pct acepta el limite superior 100"
       ],
-      "declaredFailure": "battery_pct above 100 rejected by contract"
+      "declaredFailure": "battery_pct mayor a 100 rechazado por el contrato"
     }
   },
   "assumptions": [

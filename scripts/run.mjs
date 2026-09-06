@@ -16,5 +16,5 @@ const summary = await withClient(async (client) => {
   return { counts: counts.rows[0], events: events.rows };
 });
 
-console.log("CDRL M01 telemetry contract summary");
+console.log("Resumen del contrato de telemetria M01");
 console.log(JSON.stringify(summary, null, 2));
