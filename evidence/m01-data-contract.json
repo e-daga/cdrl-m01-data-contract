@@ -1,0 +1,35 @@
+{
+  "assignmentId": "m01-data-contract",
+  "commitSha": "PENDING_WEEK_01_FINAL_TAG",
+  "commands": [
+    "make setup",
+    "make verify",
+    "make run"
+  ],
+  "results": {
+    "dataContract": "implemented",
+    "relationalDatabase": "postgresql-16",
+    "migrationStrategy": "versioned-sql-with-checksum",
+    "seedStrategy": "deterministic-synthetic-upsert",
+    "machineReadableArtifact": "artifacts/m01-verify.json",
+    "automatedTests": {
+      "normalCase": "temperature_c telemetry event accepted and readable",
+      "boundaryCases": [
+        "battery_pct lower bound 0 accepted",
+        "humidity_pct upper bound 100 accepted"
+      ],
+      "declaredFailure": "battery_pct above 100 rejected by contract"
+    }
+  },
+  "assumptions": [
+    "El equipo usa Node.js 20 para automatizacion y pruebas del contrato.",
+    "PostgreSQL 16 en Docker Compose es el respaldo reproducible local.",
+    "AWS Academy Learner Lab se usará solo si el servicio está habilitado.",
+    "Los datos iniciales son sinteticos y no representan personas reales."
+  ],
+  "limitations": [
+    "El commitSha se sustituye en Classroom por el SHA exacto del tag week-01-final.",
+    "La entrega no incluye credenciales ni cadenas de conexion cloud.",
+    "El alcance de M01 cubre contrato relacional, migracion, seed y verificacion; no incluye API publica."
+  ]
+}

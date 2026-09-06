@@ -1,0 +1,12 @@
+.env
+.venv/
+node_modules/
+coverage/
+__pycache__/
+.pytest_cache/
+artifacts/*.xml
+artifacts/*.log
+evidence/*-local.json
+db/data/
+docker-data/
+.DS_Store
