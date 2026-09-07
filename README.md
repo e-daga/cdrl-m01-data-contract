@@ -16,10 +16,11 @@ En Windows puede pasar que `make` no este instalado. En ese caso se puede correr
 
 ```sh
 npm ci
-npm run setup:db
 npm run verify
 npm run run
 ```
+
+`make verify` tambien levanta PostgreSQL, aplica migraciones y carga el seed antes de correr pruebas. Esto ayuda cuando se ejecuta la verificacion directamente en otra computadora.
 
 ## Requisitos usados
 
